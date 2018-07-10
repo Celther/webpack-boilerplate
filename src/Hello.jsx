@@ -3,7 +3,7 @@ import React from 'react';
 const Hello = (props) => {
   return (
     <div className="panel">
-      <p>Hello World</p>
+      <p>Hello Worl</p>
     </div>
   )
 }
