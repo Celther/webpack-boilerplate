@@ -23,3 +23,6 @@ tags
 
 # NPM packages folder.
 node_modules/
+
+# Webpack output folder
+build/

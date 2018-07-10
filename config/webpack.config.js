@@ -16,9 +16,12 @@ module.exports = {
     path: buildPath,
     filename: 'index_bundle.js'
   },
+  devServer: {
+    contentBase: buildPath
+  },
   devtool: isDev ? 'source-map' : 'env',
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['*', '.js', '.jsx']
   },
   module: {
     rules: [
@@ -28,12 +31,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['react', 'env']
+            presets: ['react', 'env'],
+            babelrc: false
           }
         }
       },
       {
         test: /\.s[ac]ss$/,
+        include: srcPath,
         use: [
           {
             loader: process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader
@@ -54,9 +59,8 @@ module.exports = {
       },
       {
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
-        use: {
-          loader: 'file-loader'
-        }
+        include: srcPath,
+        use: ['file-loader']
       }
     ]
   },
@@ -65,6 +69,10 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, relativePath, 'index.html'),
+      filename: 'index.html',
+      inject: 'body'
+    })
   ]
 };
