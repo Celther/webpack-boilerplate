@@ -33,6 +33,7 @@ module.exports = {
           loader: 'eslint-loader',
           options: {
             emitWarning: true,
+            formatter: require('eslint-formatter-pretty'),
           }
         }
       },
@@ -43,7 +44,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['react', 'env'],
-            babelrc: false
+            babelrc: false,
           }
         }
       },
@@ -71,19 +72,19 @@ module.exports = {
       {
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
         include: srcPath,
-        use: ['file-loader']
+        use: ['file-loader'],
       }
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].css'
+      chunkFilename: '[id].css',
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, relativePath, 'index.html'),
       filename: 'index.html',
-      inject: 'body'
+      inject: 'body',
     })
   ]
 };
