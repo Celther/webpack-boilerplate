@@ -30,7 +30,10 @@ module.exports = {
         test: /\.jsx?$/,
         include: srcPath,
         use: {
-          loader: 'eslint-loader'
+          loader: 'eslint-loader',
+          options: {
+            emitWarning: true,
+          }
         }
       },
       {
