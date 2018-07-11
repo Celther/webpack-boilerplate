@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Hello() {
+function App() {
   return (
     <div className="panel">
       <p>
@@ -10,4 +10,4 @@ function Hello() {
   );
 }
 
-export default Hello;
+export default App;

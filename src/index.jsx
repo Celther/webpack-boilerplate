@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './stylesheets/index.scss';
 
-import Hello from './Hello';
+import App from './App';
 
 ReactDOM.render(
-  <Hello />,
+  <App />,
   document.getElementById('root'),
 );
