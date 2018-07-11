@@ -1,6 +1,9 @@
 {
   "parser": "babel-eslint",
-  "rules": {
-    "extends": "airbnb"
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true
   }
+  // TODO: Change errors to warning
 }

@@ -27,9 +27,11 @@ module.exports = {
     rules: [
       {
         enforce: 'pre',
-        test: /\.js$/,
+        test: /\.jsx?$/,
         include: srcPath,
-        use: ['eslint-loader']
+        use: {
+          loader: 'eslint-loader'
+        }
       },
       {
         test: /\.jsx?$/,
