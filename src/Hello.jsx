@@ -1,11 +1,13 @@
 import React from 'react';
 
-const Hello = (props) => {
+function Hello() {
   return (
     <div className="panel">
-      <p>Hello Worl</p>
+      <p>
+        Hello World
+      </p>
     </div>
-  )
+  );
 }
 
 export default Hello;
